@@ -7,18 +7,38 @@ RFC 2119.
 
 Any computer compliant with AP MUST be addressed using the following system.
 
-Any data using the AP protocol, MUST be sent over one of the following 
+Any data using the AP protocol, MUST be sent over ComputerCraft modems.
 
-The computer address is dependent on the following variables. If any of these variables is unknown, an address MUST NOT be assigned to the computer.
-- Computer ID
-- Connection Type
-- Computer Location
+## Addressing
 
-The connection type MUST always be one of the following
-| Type                     | ID  |
-| ------------------------ | --- |
-| Wired                    | 0   |
-| Wireless (regular modem) | 1   |
-| Wireless (ender modem)   | 2   |
-| Wireless (websocket)     |     |
+A computer address MUST consist of the following sections:
+- The computer's ID, as a positive integer
+- The interface ID, as a positive integer
 
+### Computer ID
+
+The computer ID MUST be a positive integer and MUST be equal to the computer ID
+
+As a computer can have multiple interfaces (wireless, wired), an interface ID is given for every interface
+
+### Interface ID
+
+The interface ID MUST be a string, and MUST consist of a type and num part.
+
+The type MUST be any of the following:
+- wired
+- wireless
+- ender
+- nat
+
+The num part MUST be an integer
+
+`type:id`
+
+## Packet structure
+
+An AP packet MUST be a table and MUST have the following fields:
+- Destination address
+- Destination interface
+- Source address
+- Source interface
