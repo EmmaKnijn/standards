@@ -26,12 +26,12 @@ As a computer can have multiple interfaces (wireless, wired), an interface ID is
 The interface ID MUST be a string, and MUST consist of a type and num part.
 
 The type MUST be any of the following:
-- wired
-- wireless
-- ender
-- nat
+- wired (for a wired modem)
+- wireless (for a wireless modem)
+- ender (for an ender modem)
+- other (for anything else (like a software modem))
 
-The num part MUST be an integer
+The num part MUST be an integer between 1 and 65536.
 
 `type:id`
 
